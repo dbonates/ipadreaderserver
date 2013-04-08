@@ -14,7 +14,19 @@ class MagazinesController < ApplicationController
   # GET /magazines/1.json
   def show
     @magazine = Magazine.includes(:issues, :subscriptions).where(:user_id => current_user.id).find(params[:id])
-    
+      
+          if params[:showback]
+             @showback = true
+          else
+              @showback = false
+          end
+             
+          if params[:showdelete]
+             @showdelete = true
+          else
+              @showdelete = false
+          end
+             
     if params[:showback]
        @showback = true
     else

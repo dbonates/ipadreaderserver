@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(:version => 20130213114239) do
     t.datetime "updated_at",    :null => false
     t.integer  "user_id"
     t.string   "shared_secret"
-    t.string   "type"
   end
 
   create_table "previews", :force => true do |t|
