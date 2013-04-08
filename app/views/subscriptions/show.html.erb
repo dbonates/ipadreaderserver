@@ -1,0 +1,23 @@
+<%- model_class = Subscription -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @subscription.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:product_identifier) %>:</strong></dt>
+  <dd><%= @subscription.product_identifier %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              magazine_subscriptions_path(@subscription.magazine_id), :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_subscription_path(@subscription), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              subscription_path(@subscription),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Tem certeza?')) },
+              :class => 'btn btn-danger' %>
+</div>

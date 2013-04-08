@@ -1,0 +1,30 @@
+{
+	"subscriptions": [
+		<% @subscriptions.each_with_index do |sub,inx| %>
+			{"name":"<%=sub.name%>",
+			 "product_identifier":"<%=sub.product_identifier %>"}<%= "," unless inx == @subscriptions.size-1 %>
+    <% end %>
+	],
+	"issues" : [
+    <% @issues.each_with_index do |issue,inx| %>
+      {
+        "name":"<%=issue.name%>",
+        "free":"<%=issue.free%>",
+        "description":"<%=issue.description%>",
+        "product_identifier":"<%=issue.product_identifier %>",
+        "cover":"<%=request.protocol + request.host_with_port + issue.cover.url.to_s %>",
+        "created_at":"<%=issue.created_at%>",
+        "data":[
+          <%issue.previews.each_with_index do |preview,ing| %> 
+            "<%=request.protocol + request.host_with_port+ preview.image.url.to_s %>"<%= "," unless ing == issue.previews.size-1 %>
+          <% end %>
+          ],
+        "contents":[
+          <%issue.contents.each_with_index do |content,ing| %> 
+            {"pages":"<%=content.pages %>","text":"<%=content.text%>"}<%= "," unless ing == issue.contents.size-1 %>
+          <% end %>
+          ]
+      }<%= "," unless inx == @issues.size-1 %>
+    <% end %> 
+  ] 
+}

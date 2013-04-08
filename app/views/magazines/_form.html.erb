@@ -1,0 +1,32 @@
+<%= form_for @magazine, :html => { :class => 'form-horizontal', multipart:true } do |f| %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label "Bundle identifier", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :apps_id, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :shared_secret, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :shared_secret, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :pem, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :pem, :class => 'file_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                magazines_path, :class => 'btn' %>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+<%- model_class = Magazine -%>
+<div class="page-header">
+  <h1>Revista</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @magazine.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:apps_id) %>:</strong></dt>
+  <dd><%= @magazine.apps_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:pem) %>:</strong></dt>
+  <dd><%= @magazine.pem %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to "Edições", magazine_issues_path(@magazine), :class => 'btn'  %>
+  <%= link_to "Assinaturas", magazine_subscriptions_path(@magazine), :class => 'btn'  %>
+  <%= link_to "Voltar",
+              magazines_path, :class => 'btn'  %>
+  <%= link_to "Editar",
+              edit_magazine_path(@magazine), :class => 'btn' %>
+  <%= link_to "Deletar",
+              magazine_path(@magazine),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Tem certeza?')) },
+              :class => 'btn btn-danger' %>
+</div>

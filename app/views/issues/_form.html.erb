@@ -1,0 +1,67 @@
+<% path = @issue.new_record? ? [@magazine, @issue] : @issue %>
+
+
+<div class="subject new">
+   	 <div class="control-group">
+	<%= form_for path, :html => { :class => 'form-horizontal', :multipart => true } do |f| %>
+	
+		<table>
+			<tr>
+				<th class = 'control-label'>Nome</th>
+				<td><%= f.text_field :name, :class => 'text_field' %></td>
+			</tr>
+			
+			<tr>
+				<th class = 'control-label'>Grátis</th>
+				<td><%= f.check_box :free, :class => 'check-box' %></td>
+			</tr>  
+			
+			<tr>
+				<th class = 'control-label'>Descrição</th>
+				<td><%= f.text_area :description, :rows => 5 %></td>
+			</tr>  
+			
+			
+			<tr>
+				<th class = 'control-label'>Product Identifier</th>
+				<td><%= f.text_field :product_identifier, :class => 'text_field' %></td>
+			</tr>
+			
+			<tr>
+				<th class = 'control-label'>Capa</th>
+				<td><%= f.file_field :cover, :class => 'file_field' %></td>
+			</tr>
+			
+			<tr>
+				<th class = 'control-label'>PDF</th>
+				<td><%= f.file_field :pdf, :class => 'file_field' %></td>
+			</tr>
+			
+			<tr class="lightgray">
+				<th class = 'control-label'>Previews</th>
+				<td><%= f.fields_for :previews do |builder| %>
+			      <%=render 'preview_fields', f:builder %>
+			    <%end %><%= link_to_add_fields "Adicionar preview", f, :previews %> </td>
+			</tr>
+			
+			<tr>
+			   <th class = 'control-label'>Sumário</th>
+				<td><%= f.fields_for :contents do |builder| %>
+			      <%=render 'content_fields', f:builder %>
+			    <%end %></br><%= link_to_add_fields "Adicionar mais itens ao sumário", f, :contents %></td>
+			</tr> 
+		
+		</table>
+	
+		<div class="form-actions">
+		    <%= f.submit "Confirmar", :class => 'btn btn-primary' %>
+		    <%= link_to "Cancelar",
+		                magazine_issues_path(@issue.new_record? ? @magazine : @issue.magazine_id), :class => 'btn' %>
+		  </div>
+
+	<% end %>
+  </div>
+</div>
+                
+
+ 

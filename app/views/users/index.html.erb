@@ -1,0 +1,11 @@
+<h1>Lista de usuarios</h1>
+
+<dl>
+
+<% @users.each do |u| %>
+    
+  <dd>id: <%= u.id %>, email: <%= u.email %> <%= link_to("ver revistas (#{u.magazines.size})", magazines_path(:show_all => true)) %></dd>
+
+<% end %>
+
+</dl>             

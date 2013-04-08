@@ -1,0 +1,48 @@
+== Welcome to NewsStand starter kit server application
+
+This Ruby on Rails web-application created according to the Model-View-Control pattern.
+
+This pattern splits the view (also called the presentation) into "dumb"
+templates that are primarily responsible for inserting pre-built data in between
+HTML tags. The model contains the "smart" domain objects (such as Magazine,
+Issue, User) that holds all the business logic and knows how to
+persist themselves to a database. The controller handles the incoming requests
+(such as Save New Device Token or Update Magazine) by manipulating the model
+and directing data to the view.
+
+== Basic structure
+
+Hierarhical Model Structure looks like this
+(in app/models/)
+
+-- {User} (the one who administrate all the stuff)
+
+---- {Magazine} (one Magazine is one Application)
+
+------ {Subscription} (subscription options)
+
+------ {PushToken} (saves device_tokens to use it when pushes generated)
+
+------ {Issue} (hold all information about each issue)
+
+-------- {Preview} (hold preview images)
+
+-------- {Content} (hold strings for table of content and pages, where you can find it)
+
+-- {IssueObserver} (listen to Issue creation and on save send push notifications about new content to all PushTokens belonging to this Magazine)
+
+
+{ApiController} in app/controllers handle part of API requests, other part is handled by default rails controllers according to DRY- & REST-concepts.
+
+For everything else this rails application is pretty much standard.
+
+
+== Deployment in 5 simple steps
+
+1. You need VPS on ubuntu 10.04 and that makes really easy to deploy.
+2. Configure file config/deploy.rb with your preferences of server.
+3. Run in console "cap deploy:install" to install all staff app needed
+4. Run in console "cap deploy:setup" to setup server and database
+5. Run in console "cap deploy:cold" to make an initial install of application
+
+That's all folks

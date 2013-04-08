@@ -1,0 +1,38 @@
+<%- model_class = Subscription -%>
+<div class="page-header">
+  <h1>Assinaturas</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th>Nome</th>
+      <th><%= model_class.human_attribute_name(:product_identifier) %></th>
+      <th>Definida</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @subscriptions.each do |subscription| %>
+      <tr>
+        <td><%= link_to subscription.id, subscription_path(subscription) %></td>
+        <td><%= subscription.name %></td>
+        <td><%= subscription.product_identifier %></td>
+        <td><%= time_ago_in_words(subscription.created_at) %></td>
+        <td>
+          <%= link_to "Editar",
+                      edit_subscription_path(subscription), :class => 'btn btn-mini' %>
+          <%= link_to "Deletar",
+                      subscription_path(subscription),
+                      :method => :delete,
+                      :data => { :confirm => 'Tem certeza?' },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Nova",
+            new_magazine_subscription_path(@magazine),
+            :class => 'btn btn-primary' %>

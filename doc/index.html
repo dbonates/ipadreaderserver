@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.8.3
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'>
+<h2>Welcome to NewsStand starter kit server application</h2>
+
+<p>This Ruby on Rails web-application created according to the
+Model-View-Control pattern.</p>
+
+<p>This pattern splits the view (also called the presentation) into "dumb"
+templates that are primarily responsible for inserting pre-built data in
+between HTML tags. The model contains the "smart" domain objects (such as
+Magazine, Issue, User) that holds all the business logic and knows how to
+persist themselves to a database. The controller handles the incoming
+requests (such as Save New Device Token or Update Magazine) by manipulating
+the model and directing data to the view.</p>
+
+<h2>Basic structure</h2>
+
+<p>Hierarhical Model Structure looks like this (in app/models/)</p>
+
+<p>-- <span class='object_link'><a href="User.html" title="User (class)">User</a></span> (the one who administrate all the stuff)</p>
+
+<p>---- <span class='object_link'><a href="Magazine.html" title="Magazine (class)">Magazine</a></span> (one Magazine is one Application)</p>
+
+<p>------ <span class='object_link'><a href="Subscription.html" title="Subscription (class)">Subscription</a></span> (subscription options)</p>
+
+<p>------ <span class='object_link'><a href="PushToken.html" title="PushToken (class)">PushToken</a></span> (saves device_tokens to use it when pushes generated)</p>
+
+<p>------ <span class='object_link'><a href="Issue.html" title="Issue (class)">Issue</a></span> (hold all information about each issue)</p>
+
+<p>-------- <span class='object_link'><a href="Preview.html" title="Preview (class)">Preview</a></span> (hold preview images)</p>
+
+<p>-------- <span class='object_link'><a href="Content.html" title="Content (class)">Content</a></span> (hold strings for table of content and pages, where you
+can find it)</p>
+
+<p>-- <span class='object_link'><a href="IssueObserver.html" title="IssueObserver (class)">IssueObserver</a></span> (listen to Issue creation and on save send push
+notifications about new content to all PushTokens belonging to this
+Magazine)</p>
+
+<p><span class='object_link'><a href="ApiController.html" title="ApiController (class)">ApiController</a></span> in app/controllers handle part of API requests, other part
+is handled by default rails controllers according to DRY- &amp;
+REST-concepts.</p>
+
+<p>For everything else this rails application is pretty much standard.</p>
+
+<h2>Deployment </h2>
+<ol><li>
+<p>You need VPS on ubuntu 10.04 and that makes really easy to deploy.</p>
+</li><li>
+<p>Put your code on git service for example github or bitbucket</p>
+</li><li>
+<p>Configure file config/deploy.rb with your preferences of server and
+git-repository.</p>
+</li><li>
+<p>Run in console "cap deploy:install" to install all staff app needed</p>
+</li><li>
+<p>Run in console "cap deploy:setup" to setup server and database</p>
+</li><li>
+<p>Run in console "cap deploy:cold" to make an initial install of application</p>
+</li></ol>
+
+<p>That's all folks</p>
+</div></div>
+
+    <div id="footer">
+  Generated on Sat Feb  2 17:27:35 2013 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.3 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

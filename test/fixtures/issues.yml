@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  product_identifier: MyString
+  cover: MyString
+  pdf: MyString
+
+two:
+  name: MyString
+  product_identifier: MyString
+  cover: MyString
+  pdf: MyString

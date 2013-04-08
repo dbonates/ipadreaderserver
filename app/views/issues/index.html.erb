@@ -1,0 +1,38 @@
+<%- model_class = Issue -%>
+<div class="page-header">
+  <h1>Edições da Panorama</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Product Identifier</th>
+      <th>Capa</th>
+      <th>PDF</th>
+      <th>Publicada</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @issues.each do |issue| %>
+      <tr>
+        <td><%= link_to issue.id, issue_path(issue) %></td>
+        <td><%= issue.name %></td>
+        <td><%= issue.product_identifier %></td>
+        <td><%=image_tag issue.cover, width:"150" %></td>
+        <td><%= File.basename(issue.pdf.to_s) %></td>
+        <td><%= time_ago_in_words(issue.created_at) %></td>
+        <td>
+          <%= link_to "Editar",
+                      edit_issue_path(issue), :class => 'btn btn-mini' %>
+          <%= link_to "Ver", issue_path(issue), :class => 'btn btn-mini'  %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Criar nova edição",
+            new_magazine_issue_path(@magazine),
+            :class => 'btn btn-primary' %>

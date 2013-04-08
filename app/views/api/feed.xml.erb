@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"
+xmlns:news="http://itunes.apple.com/2011/Newsstand">
+<updated><%=@issues.first.created_at.to_datetime.rfc3339 %></updated>
+	<% @issues.each do |issue| %>
+		<entry>
+			<id><%= issue.id.to_s %></id>
+			<updated><%= issue.updated_at.to_datetime.rfc3339 %></updated>
+			<published><%= issue.created_at.to_datetime.rfc3339 %></published>
+			<summary><%= issue.description %></summary>
+			<news:cover_art_icons>
+				<news:cover_art_icon size="SOURCE"
+				src="<%=request.protocol + request.host_with_port + issue.cover.url.to_s %>"/>
+			</news:cover_art_icons>
+		</entry>
+	<% end %>
+</feed>

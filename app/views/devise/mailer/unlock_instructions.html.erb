@@ -1,0 +1,7 @@
+<p>Olá <%= @resource.email %>!</p>
+
+<p>Sua conta foi suspensa devido ao elevado número de tentativas de acesso usando dados incorretos.</p>
+
+<p>CLique no link abaixo para reativar sua conta:</p>
+
+<p><%= link_to 'Reativar minha conta', unlock_url(@resource, :unlock_token => @resource.unlock_token) %></p>
