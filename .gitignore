@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .DS_Store
 log/*.log
 tmp/**/*
@@ -10,3 +11,21 @@ public/uploads/*
 public/uploads/**/*
 public/uploads
 public/system
+=======
+*.rbc
+*.sassc
+.sass-cache
+capybara-*.html
+.rspec
+/.bundle
+/vendor/bundle
+/log/*
+/tmp/*
+/db/*.sqlite3
+/public/system/*
+/coverage/
+/spec/tmp/*
+**.orig
+rerun.txt
+pickle-email-*.html
+>>>>>>> 6c2ce207750deef5180ac6b92b18f199dfb0e493

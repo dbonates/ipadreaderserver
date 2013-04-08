@@ -20,7 +20,7 @@ set :use_sudo, true
 
 set :scm, "git"
 # set :local_repository, "."
-set :repository, ".git"
+set :repository, "https://github.com/dbonates/ipadreaderserver.git"
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
