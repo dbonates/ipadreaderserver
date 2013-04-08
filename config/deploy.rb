@@ -15,10 +15,12 @@ server "bonates.com", :web, :app, :db, primary: true
 set :user, "dbonates"
 set :application, "ipadreaderserver"
 set :deploy_to, "/home/#{user}/apps/#{application}"
-set :deploy_via, :copy
+set :deploy_via, :remote_cache
 set :use_sudo, true
-set :local_repository, "."
-set :repository, "."
+
+set :scm, "git"
+# set :local_repository, "."
+set :repository, ".git"
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
