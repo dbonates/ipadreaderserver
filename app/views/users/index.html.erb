@@ -4,7 +4,11 @@
 
 <% @users.each do |u| %>
     
-  <dd>id: <%= u.id %>, email: <%= u.email %> <%= link_to("ver revistas (#{u.magazines.size})", magazines_path(:show_all => true)) %></dd>
+  	<dd>id: <%= u.id %>, email: <%= u.email %> 
+		<%= link_to("ver revistas (#{u.magazines.size})", magazines_path(:show_all => true)) %>
+    	<%= link_to "Ver", model_path(u) %>
+
+	</dd>
 
 <% end %>
 
