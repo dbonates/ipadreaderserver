@@ -25,7 +25,7 @@ class PushTokensController < ApplicationController
       render json: @push_token.errors, status: :unprocessable_entity
     end
   end
-x
+
   # DELETE /push_tokens/1
   # DELETE /push_tokens/1.json
   def destroy
