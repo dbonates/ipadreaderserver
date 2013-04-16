@@ -1,19 +1,18 @@
-ipadreaderserver
-================
+# ipadreaderserver
 
-1. Configure file config/deploy.rb with your preferences of server.
-2. cap deploy:setup
-3. cap deploy:check
-4. cap deploy:migrations
+### Configure file config/deploy.rb with your preferences of server.
+> cap deploy:setup <br />
+> cap deploy:check <br />
+> cap deploy:migrations
 
-próximos deploys:
+### próximos deploys:
 
-1. git commit -m mensagem
-2. cap deploy
+> git commit -m mensagem <br />
+> cap deploy
 
-voltar versões / desfazer deploy
+### voltar versões / desfazer deploy
 
-1. deploy:rollback
+> deploy:rollback
 
                             
 
