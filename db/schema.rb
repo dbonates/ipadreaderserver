@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130213114239) do
+ActiveRecord::Schema.define(:version => 20130409060929) do
 
   create_table "contents", :force => true do |t|
     t.string   "text"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20130213114239) do
     t.datetime "updated_at",    :null => false
     t.integer  "user_id"
     t.string   "shared_secret"
+    t.boolean  "visible"
   end
 
   create_table "previews", :force => true do |t|
@@ -102,6 +103,7 @@ ActiveRecord::Schema.define(:version => 20130213114239) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "role"
+    t.boolean  "admin"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

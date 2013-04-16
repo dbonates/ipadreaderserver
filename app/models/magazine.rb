@@ -1,5 +1,5 @@
 class Magazine < ActiveRecord::Base
-  attr_accessible :apps_id, :name, :pem, :user_id, :shared_secret
+  attr_accessible :apps_id, :name, :pem, :user_id, :shared_secret, :visible
   validates :apps_id, :presence=> :true
   validates :pem, :presence=> :true
   validates :shared_secret, :presence => :true

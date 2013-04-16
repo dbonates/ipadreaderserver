@@ -20,7 +20,7 @@ Ipadreaderserver::Application.routes.draw do
   # resources :contents
 
 
-  # resources :previews
+  resources :users
 
 
   

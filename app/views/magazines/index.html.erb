@@ -7,11 +7,12 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th>Nome</th>
       <th><%= model_class.human_attribute_name(:apps_id) %></th>
       <th><%= model_class.human_attribute_name(:pem) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th>Criada</th> 
+	  <th>Visível</th>
+      <th>Ações</th>
     </tr>
   </thead>
   <tbody>
@@ -20,12 +21,13 @@
         <td><%= link_to magazine.id, magazine_path(magazine) %></td>
         <td><%= link_to magazine.name, magazine_path(magazine) %></td>
         <td><%= magazine.apps_id %></td>
-        <td><%= magazine.pem %></td>
-        <td><%=l magazine.created_at %></td>
+        <td><%= File.basename(magazine.pem.to_s) %></td>
+        <td><%= time_ago_in_words(magazine.created_at) %></td>
+		<td><%= magazine.visible %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+          <%= link_to "Editar",
                       edit_magazine_path(magazine), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+          <%= link_to "Deletar",
                       magazine_path(magazine),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Tem certeza?')) },

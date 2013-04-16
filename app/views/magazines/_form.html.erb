@@ -18,6 +18,12 @@
     </div>
   </div>
   <div class="control-group">
+    <div class='control-label'>Visível</div>
+    <div class="controls">
+      <%= f.check_box :visible %>
+    </div>
+  </div>
+  <div class="control-group">
     <%= f.label :pem, :class => 'control-label' %>
     <div class="controls">
       <%= f.file_field :pem, :class => 'file_field' %>
