@@ -55,6 +55,13 @@ class ApiController < ApplicationController
         issue = Issue.find_by_product_identifier(params[:product_identifier])
         if issue.free?
           render json:{status:'ok',download_url:"#{request.protocol + request.host_with_port+issue.pdf.url}"}
+        else
+          if params[:printed]
+            # parametro para dizer se eh assinante da impressa
+            if params[:printed] == "receipt"
+               render json:{status:'ok',download_url:"#{request.protocol + request.host_with_port+issue.pdf.url}"} 
+            end
+          end
         end
       else
         render json:{status:'failed'}
