@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130409060929) do
+ActiveRecord::Schema.define(:version => 20130419034204) do
 
   create_table "contents", :force => true do |t|
     t.string   "text"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20130409060929) do
     t.integer  "magazine_id"
     t.boolean  "free"
     t.text     "description"
+    t.string   "bigcover"
   end
 
   create_table "magazines", :force => true do |t|

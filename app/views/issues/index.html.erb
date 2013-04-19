@@ -11,6 +11,7 @@
       <th>Capa</th>
       <th>PDF</th>
       <th>Publicada</th>
+      <th>Free?</th>
       <th>Ações</th>
     </tr>
   </thead>
@@ -23,6 +24,7 @@
         <td><%=image_tag issue.cover, width:"150" %></td>
         <td><%= File.basename(issue.pdf.to_s) %></td>
         <td><%= time_ago_in_words(issue.created_at) %></td>
+        <td><%= issue.free ? "Sim" : "Não" %></td>
         <td>
           <%= link_to "Editar",
                       edit_issue_path(issue), :class => 'btn btn-mini' %>
