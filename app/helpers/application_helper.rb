@@ -15,4 +15,6 @@ module ApplicationHelper
     require 'kramdown'
     return sanitize Kramdown::Document.new(text).to_html
   end
+
+  
 end

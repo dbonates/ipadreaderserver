@@ -72,12 +72,16 @@ class SubscriptionsController < ApplicationController
 
   # DELETE /subscriptions/1
   # DELETE /subscriptions/1.json
-  def destroy
-    @subscription = Subscription.find(params[:id])
+  def destroy 
+   
+    @subscription = Subscription.find(params[:id]) 
+    
+     mag_id = @subscription.magazine_id 
+     
     @subscription.destroy
 
     respond_to do |format|
-      format.html { redirect_to subscriptions_url }
+      format.html { redirect_to subscriptions_url(:magazine_id => mag_id) }
       format.json { head :no_content }
     end
   end

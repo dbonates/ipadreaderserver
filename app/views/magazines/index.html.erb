@@ -1,15 +1,15 @@
 <%- model_class = Magazine -%>
 <div class="page-header">
 
-<h1>Revistas</h1>
+<h1>Publicações</h1>
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th>Nome</th>
-      <th><%= model_class.human_attribute_name(:apps_id) %></th>
-      <th><%= model_class.human_attribute_name(:pem) %></th>
+      <th>Identifier</th>
+      <th>Cliente</th>
       <th>Criada</th> 
 	  <th>Visível</th>
       <th>Ações</th>
@@ -21,7 +21,7 @@
         <td><%= link_to magazine.id, magazine_path(magazine) %></td>
         <td><%= link_to magazine.name, magazine_path(magazine) %></td>
         <td><%= magazine.apps_id %></td>
-        <td><%= File.basename(magazine.pem.to_s) %></td>
+        <td><%= User.find_by_id(magazine.user_id).email %></td>
         <td><%= time_ago_in_words(magazine.created_at) %></td>
 		<td><%= magazine.visible %></td>
         <td>

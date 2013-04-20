@@ -4,4 +4,13 @@
   Use Font Awesome icons (default)
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
-  */
+  */     
+ 
+ .nav_style {
+	float: none;
+	padding: 10px 15px 10px;
+	color: #000000;
+	text-decoration: none;
+	text-shadow: 0 0px 0 #ffffff;
+    display: block;
+}

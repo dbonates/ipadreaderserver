@@ -28,4 +28,4 @@ Magazines -
 	                                                                       
 	* Nessa estratégia talvez seja melhor criar um template pro usuario admin e outro pro comum
 	Na listagem - se o usuario for admin, listar todas + todos os controles
-				- se for usuario comum, listar as visíveis + mostrar apenas o controle de editar a Revista, Edições e Assinatura
+				- se for usuario comum, listar as visíveis + mostrar apenas o controle de editar a Publicação, Edições e Assinatura

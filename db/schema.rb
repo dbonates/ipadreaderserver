@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130419034204) do
+ActiveRecord::Schema.define(:version => 20130420004331) do
 
   create_table "contents", :force => true do |t|
     t.string   "text"
@@ -66,7 +66,10 @@ ActiveRecord::Schema.define(:version => 20130419034204) do
     t.integer  "user_id"
     t.string   "shared_secret"
     t.boolean  "visible"
+    t.string   "slug"
   end
+
+  add_index "magazines", ["slug"], :name => "index_magazines_on_slug"
 
   create_table "previews", :force => true do |t|
     t.string   "image"

@@ -73,11 +73,15 @@ class IssuesController < ApplicationController
   # DELETE /issues/1
   # DELETE /issues/1.json
   def destroy
-    @issue = Issue.find(params[:id])
+    @issue = Issue.find(params[:id]) 
+    
+    mag_id = @issue.magazine_id 
+    
+    
     @issue.destroy
 
     respond_to do |format|
-      format.html { redirect_to issues_url }
+      format.html { redirect_to issues_url(:magazine_id => mag_id) }
       format.json { head :no_content }
     end
   end

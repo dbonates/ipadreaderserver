@@ -23,6 +23,14 @@
       <%= f.check_box :visible %>
     </div>
   </div>
+<% if current_user.admin %>
+  <div class="control-group">
+    <div class='control-label'>Cliente</div>
+    <div class="controls">
+      <%= f.select(:user_id, @users.collect { |u| [u.email, u.id]}) %>
+    </div>
+  </div>                
+<% end %>
   <div class="control-group">
     <%= f.label :pem, :class => 'control-label' %>
     <div class="controls">

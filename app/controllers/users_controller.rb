@@ -1,5 +1,9 @@
-class UsersController < ApplicationController
+class UsersController < ApplicationController 
+   
+  skip_before_filter :authenticate_user!
   
+  before_filter :validate_admin!
+
   def index
     @users = User.all
     
@@ -33,21 +37,27 @@ class UsersController < ApplicationController
       format.json { render json: @user }
     end
   end
+       
   
+  def active_for_authentication?
+      super && is_approved
+    end
+    
+    
   # POST /users
   # POST /users.json
   def create
     @user = User.new(params[:user])
-
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render json: @user, status: :created, location: @user }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
+        
+         respond_to do |format|
+            if @user.save 
+              format.html { redirect_to users_path, notice: 'User was successfully created.' }
+              format.json { render json: @user, status: :created, location: @user }
+            else 
+              format.html { render action: "new" }
+              format.json { render json: @user.errors, status: :unprocessable_entity }
+            end
+          end
   end
   
   
