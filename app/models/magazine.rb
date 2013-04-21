@@ -1,3 +1,4 @@
+#encoding: utf-8
 class Magazine < ActiveRecord::Base 
                     
   # extend FriendlyId
@@ -17,7 +18,11 @@ class Magazine < ActiveRecord::Base
   has_many :push_tokens
   belongs_to :user
   mount_uploader :pem, PemUploader
-  
+        
+   def is_visible
+      visible ? "Sim" : "Não"
+   end        
+   
    def slug
      "#{id}-#{name}".parameterize
    end

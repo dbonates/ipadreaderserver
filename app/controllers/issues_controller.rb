@@ -6,7 +6,13 @@ class IssuesController < ApplicationController
   # GET /issues
   # GET /issues.json
   def index
-    @issues = Issue.where(:magazine_id => @magazine.id)
+    
+    if current_user.admin && !@magazine
+           @issues = Issue.all
+    else
+           @issues = Issue.where(:magazine_id => @magazine.id)
+    end
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @issues }

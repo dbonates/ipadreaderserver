@@ -1,3 +1,4 @@
+#encoding: utf-8  
 class Issue < ActiveRecord::Base
   # extend FriendlyId
   # friendly_id :name, use: :slugged  
@@ -24,6 +25,15 @@ class Issue < ActiveRecord::Base
 
   default_scope order("created_at DESC")   
   
+  def is_visible
+      visible ? "Sim" : "Não"
+   end
+   
+   def is_free
+       free ? "Sim" : "Não"
+   end
+    
+    
   def slug
      "#{id}-#{name}".parameterize
    end

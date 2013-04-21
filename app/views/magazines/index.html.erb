@@ -23,7 +23,7 @@
         <td><%= magazine.apps_id %></td>
         <td><%= User.find_by_id(magazine.user_id).email %></td>
         <td><%= time_ago_in_words(magazine.created_at) %></td>
-		<td><%= magazine.visible %></td>
+		<td><%= magazine.is_visible %></td>
         <td>
           <%= link_to "Editar",
                       edit_magazine_path(magazine), :class => 'btn btn-mini' %>

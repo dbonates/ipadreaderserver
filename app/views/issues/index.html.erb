@@ -1,6 +1,6 @@
 <%- model_class = Issue -%>
 <div class="page-header">
-  <h1>Edições da <%= @magazine.name %></h1>
+  <h1>Edições <%= @magazine ? "da #{@magazine.name}" : "" %></h1>
 </div>
 <table class="table table-striped">
   <thead>
@@ -24,7 +24,7 @@
         <td><%=image_tag issue.cover, width:"150" %></td>
         <td><%= File.basename(issue.pdf.to_s) %></td>
         <td><%= time_ago_in_words(issue.created_at) %></td>
-        <td><%= issue.free ? "Sim" : "Não" %></td>
+        <td><%= issue.is_free %></td>
         <td>
           <%= link_to "Editar",
                       edit_issue_path(issue), :class => 'btn btn-mini' %>
@@ -35,6 +35,5 @@
   </tbody>
 </table>
 
-<%= link_to "Criar nova edição",
-            new_magazine_issue_path(@magazine),
-            :class => 'btn btn-primary' %>
+
+<%= @magazine ? link_to("Criar nova edição", new_magazine_issue_path(@magazine), :class => 'btn btn-primary') : "" %>

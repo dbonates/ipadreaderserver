@@ -6,7 +6,7 @@
   =require twitter-bootstrap-static/fontawesome
   */     
  
- .nav_style {
+.nav_style {
 	float: none;
 	padding: 10px 15px 10px;
 	color: #000000;
@@ -14,3 +14,39 @@
 	text-shadow: 0 0px 0 #ffffff;
     display: block;
 }
+   
+
+.btn:visited {
+	color: #333333; 
+}
+
+.btn-primary:visited {
+	color: #66AAAA;
+}
+.btn-danger:visited {
+	color: #FFD8D4;
+}
+
+a:hover, a:focus {
+	text-decoration: none;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+  &:visited {
+    color: #000;
+  }
+  &:hover {
+    color: #fff;
+    background-color: #000;
+ 	text-shadow: none;
+  }
+} 
+
+.navbar .brand:hover { 
+	color: #fff;
+	text-shadow: none; 
+	text-decoration: none; 
+}  
+
