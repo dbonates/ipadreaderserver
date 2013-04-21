@@ -1,5 +1,8 @@
-class SubscriptionsController < ApplicationController
+class SubscriptionsController < ApplicationController 
+  
   before_filter :load_magazine, only:[:index, :new, :create]
+  before_filter :find_subscription, only:[:show, :edit, :update, :destroy]
+  
   # GET /subscriptions
   # GET /subscriptions.json
   def index
@@ -14,7 +17,6 @@ class SubscriptionsController < ApplicationController
   # GET /subscriptions/1
   # GET /subscriptions/1.json
   def show
-    @subscription = Subscription.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -35,7 +37,6 @@ class SubscriptionsController < ApplicationController
 
   # GET /subscriptions/1/edit
   def edit
-    @subscription = Subscription.find(params[:id])
   end
 
   # POST /subscriptions
@@ -57,7 +58,6 @@ class SubscriptionsController < ApplicationController
   # PUT /subscriptions/1
   # PUT /subscriptions/1.json
   def update
-    @subscription = Subscription.find(params[:id])
 
     respond_to do |format|
       if @subscription.update_attributes(params[:subscription])
@@ -73,10 +73,8 @@ class SubscriptionsController < ApplicationController
   # DELETE /subscriptions/1
   # DELETE /subscriptions/1.json
   def destroy 
-   
-    @subscription = Subscription.find(params[:id]) 
-    
-     mag_id = @subscription.magazine_id 
+        
+    mag_id = @subscription.magazine_id 
      
     @subscription.destroy
 
@@ -87,6 +85,11 @@ class SubscriptionsController < ApplicationController
   end
 
   private
+  
+   def find_subscription
+      @subscription = Subscription.find_by_slug(params[:id]) 
+   end
+    
   def load_magazine
     @magazine = Magazine.find(params[:magazine_id])
   end

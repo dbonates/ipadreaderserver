@@ -7,14 +7,14 @@ class MagazinesController < ApplicationController
   
   
   def find_magazine
-    
-    if current_user.admin
-      # @magazine = Magazine.includes(:issues, :subscriptions).where(:id => params[:id]).first
-      # magazines = Magazine.includes(:issues, :subscriptions).where(:id => params[:id])
-      @magazine = Magazine.find(params[:id])  
-    else
-      @magazine = Magazine.includes(:issues, :subscriptions).where(:user_id => current_user.id).find(params[:id]) 
-    end
+     @magazine = Magazine.find_by_slug(params[:id])       
+    # if current_user.admin
+    #       # @magazine = Magazine.includes(:issues, :subscriptions).where(:id => params[:id]).first
+    #       # magazines = Magazine.includes(:issues, :subscriptions).where(:id => params[:id])
+    #       @magazine = Magazine.find(params[:id])  
+    #     else
+    #       @magazine = Magazine.includes(:issues, :subscriptions).where(:user_id => current_user.id).find(params[:id]) 
+    #     end   
     
   end
   
@@ -38,7 +38,7 @@ class MagazinesController < ApplicationController
   # GET /magazines/1
   # GET /magazines/1.json
   def show
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @magazine }
@@ -71,7 +71,7 @@ class MagazinesController < ApplicationController
     @magazine.user = current_user
     respond_to do |format|
       if @magazine.save
-        format.html { redirect_to magazine_path, notice: 'Publicação criada com sucesso.' }
+        format.html { redirect_to magazine_path(@magazine), notice: 'Publicação criada com sucesso.' }
         format.json { render json: @magazine, status: :created, location: @magazine }
       else
         format.html { render action: "new" }

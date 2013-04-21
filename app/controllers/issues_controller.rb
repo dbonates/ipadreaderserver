@@ -1,9 +1,12 @@
 class IssuesController < ApplicationController
+  
   before_filter :load_magazine, only:[:index, :new, :create]
+  before_filter :find_issue, only: [:show, :edit, :update, :destroy]
+  
   # GET /issues
   # GET /issues.json
   def index
-    @issues = Issue.where(:magazine_id => params[:magazine_id])
+    @issues = Issue.where(:magazine_id => @magazine.id)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @issues }
@@ -13,8 +16,8 @@ class IssuesController < ApplicationController
   # GET /issues/1
   # GET /issues/1.json
   def show
-    @issue = Issue.includes(:previews, :contents).find(params[:id])
-
+    @magazine = Magazine.find_by_id(@issue.magazine_id) 
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @issue }
@@ -34,8 +37,7 @@ class IssuesController < ApplicationController
   end
 
   # GET /issues/1/edit
-  def edit
-    @issue = Issue.includes(:previews, :contents).find(params[:id])
+  def edit 
   end
 
   # POST /issues
@@ -57,8 +59,6 @@ class IssuesController < ApplicationController
   # PUT /issues/1
   # PUT /issues/1.json
   def update
-    @issue = Issue.find(params[:id])
-
     respond_to do |format|
       if @issue.update_attributes(params[:issue])
         format.html { redirect_to @issue, notice: 'Edicao atualizada com sucesso.' }
@@ -73,7 +73,6 @@ class IssuesController < ApplicationController
   # DELETE /issues/1
   # DELETE /issues/1.json
   def destroy
-    @issue = Issue.find(params[:id]) 
     
     mag_id = @issue.magazine_id 
     
@@ -86,8 +85,13 @@ class IssuesController < ApplicationController
     end
   end
 
-  private
-    def load_magazine
-      @magazine = Magazine.find(params[:magazine_id])
+  private             
+  
+    def find_issue
+      @issue = Issue.find_by_slug(params[:id]) 
+    end
+  
+    def load_magazine       
+        @magazine = Magazine.find_by_id(params[:magazine_id])
     end
 end

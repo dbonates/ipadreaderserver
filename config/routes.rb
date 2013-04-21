@@ -7,21 +7,27 @@ Ipadreaderserver::Application.routes.draw do
   get "users/delete"
 
   devise_for :users
-
+  resources :users
+  
+  
+  # match "magazines/show" => "home#index" 
+  
   resources :push_tokens, only:[:index, :create, :destroy]
   match "push_tokens/:id" => "push_tokens#index"
   get "api/protocol" => "api#protocol"#, :constraints => { :id => /[\w+\.]+/ }
   get "api/feed" => "api#feed"
   get "api/receipt" => "api#receipt"
+  
+  # resources :magazines
   resources :magazines, shallow:true do 
     resources :subscriptions
     resources :issues
   end
   # resources :contents
    
-  resources :issues
-  resources :subscriptions
-  resources :users
+  # resources :issues
+  # resources :subscriptions    
+  
 
 
   
@@ -81,5 +87,5 @@ Ipadreaderserver::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  #match ':controller(/:action(/:id))(.:format)'
+  match ':controller(/:action(/:id))(.:format)'
 end

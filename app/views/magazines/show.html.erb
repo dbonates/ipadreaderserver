@@ -13,7 +13,7 @@
 </dl>
 
 <div class="form-actions">
-  <%= link_to "Edições", magazine_issues_path(@magazine), :class => 'btn'  %>
+  <%= link_to "Edições", magazine_issues_path(@magazine.id), :class => 'btn'  %>
   <%= link_to "Assinaturas", magazine_subscriptions_path(@magazine), :class => 'btn'  %>
       
 	<% if current_user.admin %>

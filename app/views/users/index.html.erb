@@ -1,25 +1,42 @@
+<% model_class = User %>
 <h1>Lista de usuários</h1>
 
-<table>
-  <tr>
-    <th>Email</th>
-    <th>Admin?</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:admin) %></th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+<div id="users">
+		<% @users.each do |user| %>
 
-<% @users.each do |user| %>
-  <tr>
-    <td><%= user.email %></td>
-    <td><%= user.admin %></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
-  </tr>
-<% end %>
+				<%= content_tag_for(:tr, user) do %>
+				      <td> <%= user.id %></td>
+				      <td> <%= user.email %></td>
+				      <td> <%= user.admin %></td>
+				      <td>
+						   <%= link_to "Ver", user_path(user), :class => 'btn btn-mini' %>
+						   <%= link_to "Editar", edit_user_path(user), :class => 'btn btn-mini' %>
+						   <%= link_to "Deletar", user, method: :delete, confirm: "Deseja mesmo deletar esse usuário?", remote: true, :class => 'btn btn-mini btn-danger' %>  
+					  </td>
+						
+				<% end %>
+				
+				
+				   
+                                    
+<br/>                 
+		<% end %>  
+</div>
+  </tbody>
 </table>
 
 <br />
 
-<%= link_to 'New User', new_user_path %>      
+<%= link_to 'Novo usuário', new_user_path, class: "btn btn-primary" %>    
+  

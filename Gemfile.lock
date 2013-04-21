@@ -82,6 +82,7 @@ GEM
       factory_girl (~> 4.2.0)
       railties (>= 3.0.0)
     formatador (0.2.4)
+    friendly_id (4.0.9)
     grocer (0.3.4)
     guard (1.7.0)
       formatador (>= 0.2.4)
@@ -235,6 +236,7 @@ DEPENDENCIES
   delayed_job_active_record
   devise
   factory_girl_rails
+  friendly_id
   grocer
   guard-rspec
   haml
