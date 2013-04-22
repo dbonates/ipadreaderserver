@@ -25,6 +25,6 @@ namespace :unicorn do
     task command, roles: :app do
       run "service unicorn_#{application} #{command}"
     end
-    after "deploy:#{command}", "unicorn:restart"
+    after "deploy:#{command}", "unicorn:start"
   end
 end
