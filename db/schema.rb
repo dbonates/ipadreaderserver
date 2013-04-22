@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(:version => 20130420071950) do
     t.string   "slug"
   end
 
-  add_index "magazines", ["slug"], :name => "index_magazines_on_slug"
+  add_index "magazines", ["slug"], :name => "index_magazines_on_slug", :unique => true
 
   create_table "previews", :force => true do |t|
     t.string   "image"
