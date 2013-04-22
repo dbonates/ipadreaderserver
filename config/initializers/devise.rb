@@ -209,6 +209,8 @@ Devise.setup do |config|
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
+  # a solução abaixo não funcionou, como sugerido no github
+  # config.sign_out_via = Rails.env.test? ? :delete : :get
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
