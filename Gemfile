@@ -11,7 +11,18 @@ group :development do
   gem 'thin'
   gem 'better_errors'
   gem 'binding_of_caller'
-end
+end 
+
+
+group :staging do
+  gem 'sqlite3'
+  gem 'thin'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end 
+
+gem "auto_strip_attributes", "~> 1.0"
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -61,4 +72,4 @@ group :test do
   gem "guard-rspec"
 end
 
-gem "friendly_id"
+# gem "friendly_id"   

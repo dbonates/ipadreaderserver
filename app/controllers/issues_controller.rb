@@ -86,7 +86,7 @@ class IssuesController < ApplicationController
     @issue.destroy
 
     respond_to do |format|
-      format.html { redirect_to issues_url(:magazine_id => mag_id) }
+      format.html { redirect_to magazine_issues_path(:magazine_id => mag_id) }
       format.json { head :no_content }
     end
   end

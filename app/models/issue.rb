@@ -1,7 +1,9 @@
 #encoding: utf-8  
 class Issue < ActiveRecord::Base
   # extend FriendlyId
-  # friendly_id :name, use: :slugged  
+  # friendly_id :name, use: :slugged              
+  
+  auto_strip_attributes :product_identifier, :name 
   
   attr_accessible :free, :description, :cover, :name, :pdf, :product_identifier, :previews_attributes, :contents_attributes, :bigcover
   
@@ -11,7 +13,7 @@ class Issue < ActiveRecord::Base
   
   accepts_nested_attributes_for :previews, allow_destroy: true
   accepts_nested_attributes_for :contents, allow_destroy: true
-
+   
   mount_uploader :pdf, PdfUploader
   mount_uploader :cover, ImageUploader
   mount_uploader :bigcover, ImageUploader 
@@ -24,14 +26,14 @@ class Issue < ActiveRecord::Base
   validates :product_identifier, uniqueness: true
 
   default_scope order("created_at DESC")   
-  
+             
   def is_visible
       visible ? "Sim" : "Não"
-   end
+  end
    
-   def is_free
+  def is_free
        free ? "Sim" : "Não"
-   end
+  end
     
     
   def slug

@@ -1,6 +1,8 @@
 #encoding: utf-8
 class Magazine < ActiveRecord::Base 
-                    
+   
+  auto_strip_attributes :apps_id, :name
+                   
   # extend FriendlyId
   # friendly_id :name, use: :slugged   
   
