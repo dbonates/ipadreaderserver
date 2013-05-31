@@ -31,5 +31,5 @@
 		              :class => 'btn btn-danger' %>
 	<% end %>
 
-  <%= link_to "Notificações", notifications_path(@magazine), :class => 'btn btn-inverse force-white pull-right' %>
+  <%= link_to "Notificações", notifications_path(:magazine_id => @magazine.id), :class => 'btn btn-inverse force-white pull-right' %>
 </div>

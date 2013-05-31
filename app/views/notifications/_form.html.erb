@@ -1,15 +1,15 @@
-<%= form_for @notification, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for notification, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
     <%= f.label :text, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :text, :class => 'text_field' %>
-      <%= f.hidden_field :magazine_id, value: @notification.magazine_id %>
+      <%= f.hidden_field :magazine_id, value: current_magazine.id %>
     </div>
   </div>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                notifications_path(@notification.magazine_id), :class => 'btn' %>
+                notifications_path(:magazine_id => current_magazine.id), :class => 'btn' %>
   </div>
 <% end %>

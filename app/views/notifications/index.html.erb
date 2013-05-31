@@ -17,7 +17,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @notifications.each do |notification| %>
+   <% notifications.each do |notification| %>
       <tr>
         <td><%= notification.id %></td>
         <% if current_user.admin %>
@@ -43,5 +43,11 @@
 </table>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
-            new_notification_path,
+            new_notification_path(:magazine_id => current_magazine.id),
             :class => 'btn btn-primary' %>
+
+<% if !Rails.env.production? %>
+  <hr />
+  <%= params.inspect %><hr />
+  <%= debug(current_magazine)%> 
+<% end %>
