@@ -69,6 +69,9 @@ class NotificationsController < ApplicationController
       notifications.each do |notification|
         pusher.push(notification)
       end
+
+      notificacao.update_attributes(:enviada_em => Time.zone.now)
+      
       totalTokens = tokens.size
       flash[:notice] = "Notificação enviada para #{totalTokens} iPads. (texto:#{mensagem})"
       redirect_to notifications_path(:magazine_id => notification.magazine_id)

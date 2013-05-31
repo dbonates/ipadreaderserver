@@ -1,6 +1,6 @@
 <%- model_class = Notification -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+  <h1>Notificações</h1>
 </div>
 <table class="table table-striped">
   <thead>
@@ -10,9 +10,7 @@
       <th><%= model_class.human_attribute_name(:magazine_id) %></th>
       <% end %>
       <th><%= model_class.human_attribute_name(:text) %></th>
-      <% if current_user.admin %>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <% end %>
+      <th><%= model_class.human_attribute_name(:enviada_em)%></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -24,9 +22,7 @@
         <td><%= notification.magazine_id %></td>
         <% end %>
         <td><%= notification.text %></td>
-        <% if current_user.admin %>
-        <td><%=l notification.created_at %></td>
-        <% end %>
+        <td><%= notification.enviada_em ? "#{notification.enviada_em.strftime('%H:%Mh, %b de %Y')} (a #{time_ago_in_words(notification.enviada_em)} atrás)" : "nunca" %></td>
         <td>
           <%= link_to "Notificar", send_push_notification_path(notification.id),
             :data => { :confirm => "Deseja notificar todos os usuários dessa publicação com o texto: '#{notification.text}' ?" },
@@ -42,7 +38,7 @@
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
+<%= link_to "Nova",
             new_notification_path(:magazine_id => current_magazine.id),
             :class => 'btn btn-primary' %>
 

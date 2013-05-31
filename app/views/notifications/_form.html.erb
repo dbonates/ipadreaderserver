@@ -8,8 +8,8 @@
   </div>
 
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+    <%= f.submit "Confirmar", :class => 'btn btn-primary' %>
+    <%= link_to "Cancelar",
                 notifications_path(:magazine_id => current_magazine.id), :class => 'btn' %>
   </div>
 <% end %>
