@@ -2,7 +2,6 @@ class IssueObserver < ActiveRecord::Observer
 
   def configurate_pusher(magazine, sandbox=nil)
     gateway = sandbox ? "gateway.sandbox.push.apple.com" : "gateway.push.apple.com"
-    # cert = sandbox ? "/srv/basispress.com/ipadreaderserver/public/cert.pem" : magazine.pem.path
     cert = sandbox ? "/home/dbonates/apps/ipadreaderserver/current/public/cert.pem" : magazine.pem.path
     Grocer.pusher(certificate:cert, gateway:gateway)
   end

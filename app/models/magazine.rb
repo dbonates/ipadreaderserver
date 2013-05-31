@@ -17,33 +17,14 @@ class Magazine < ActiveRecord::Base
   validates :apps_id, :uniqueness => :true
   has_many :subscriptions
   has_many :issues
+  has_many :notifications
   has_many :push_tokens
   belongs_to :user
   mount_uploader :pem, PemUploader
         
    def is_visible
       visible ? "Sim" : "Não"
-   end        
-   
-   def slug
-     "#{id}-#{name}".parameterize
    end
-
-  def to_param
-    slug
-  end
-
-  def self.find_by_slug(*args)
-    record = find(*args)
-    if record and record.respond_to? :slug
-      return nil unless record.slug == args.first
-    end
-    record
-  end
-
-  def self.find_by_slug!(*args)
-    find_by_slug(*args) or raise ActiveRecord::RecordNotFound
-  end
   
   def firstname
     self.name.match(/^([\w]+)/i )[1].titlecase # a handy bonus class method if you're storing the User's full name in a single field and want to grab just their first name. For example, call in the view via @user.firstname

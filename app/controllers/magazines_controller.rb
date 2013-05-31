@@ -7,7 +7,7 @@ class MagazinesController < ApplicationController
   
   
   def find_magazine
-     @magazine = Magazine.find_by_slug(params[:id])       
+     @magazine = Magazine.find_by_id(params[:id])       
     # if current_user.admin
     #       # @magazine = Magazine.includes(:issues, :subscriptions).where(:id => params[:id]).first
     #       # magazines = Magazine.includes(:issues, :subscriptions).where(:id => params[:id])

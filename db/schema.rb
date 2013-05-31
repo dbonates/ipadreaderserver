@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130420071950) do
+ActiveRecord::Schema.define(:version => 20130530025924) do
 
   create_table "contents", :force => true do |t|
     t.string   "text"
@@ -71,6 +71,13 @@ ActiveRecord::Schema.define(:version => 20130420071950) do
   end
 
   add_index "magazines", ["slug"], :name => "index_magazines_on_slug", :unique => true
+
+  create_table "notifications", :force => true do |t|
+    t.string   "text"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "magazine_id"
+  end
 
   create_table "previews", :force => true do |t|
     t.string   "image"

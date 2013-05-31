@@ -1,6 +1,14 @@
 Ipadreaderserver::Application.routes.draw do
   
   
+  resources :notifications do
+    member do
+      get 'send_push'
+      end
+  end
+
+  # match "notifications/send_push/:id" => "notifications#send_push"
+
   # devise_for :users
   devise_for :users do
     get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session
