@@ -2,7 +2,8 @@
 class Issue < ActiveRecord::Base
   # extend FriendlyId
   # friendly_id :name, use: :slugged              
-  
+  default_scope order('position ASC')
+
   auto_strip_attributes :product_identifier, :name 
   
   attr_accessible :free, :description, :cover, :name, :pdf, :product_identifier, :previews_attributes, :contents_attributes, :bigcover

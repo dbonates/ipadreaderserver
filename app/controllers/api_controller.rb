@@ -75,7 +75,7 @@ class ApiController < ApplicationController
   # @return XML with information about all issues according Newsstand Atom Feed 1.2 Specification
   def feed
     magazine = Magazine.find_by_apps_id(params[:id]) # get current magazine
-    @issues = Issue.includes(:previews, :contents).where(:magazine_id => magazine) # get current magazine issues
+    @issues = Issue.includes(:previews, :contents).where(:magazine_id => magazine).order("position") # get current magazine issues
     render 'feed.xml'
   end
 end

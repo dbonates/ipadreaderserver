@@ -8,9 +8,9 @@ class IssuesController < ApplicationController
   def index
     
     if current_user.admin && !@magazine
-           @issues = Issue.all
+           @issues = Issue.order("position")
     else
-           @issues = Issue.where(:magazine_id => @magazine.id)
+           @issues = Issue.where(:magazine_id => @magazine.id).order("position")
     end
     
     respond_to do |format|
@@ -89,6 +89,14 @@ class IssuesController < ApplicationController
       format.html { redirect_to magazine_issues_path(:magazine_id => mag_id) }
       format.json { head :no_content }
     end
+  end
+
+  def sort
+    params[:issue].each_with_index do |id, index|
+      Issue.update_all({position: index+1}, {id: id})
+    end
+    render nothing: true
+    
   end
 
   private             

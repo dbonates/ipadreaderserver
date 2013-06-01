@@ -6,7 +6,6 @@ Ipadreaderserver::Application.routes.draw do
       get 'send_push'
       end
   end
-
   # match "notifications/send_push/:id" => "notifications#send_push"
 
   # devise_for :users
@@ -27,7 +26,13 @@ Ipadreaderserver::Application.routes.draw do
   # resources :magazines
   resources :magazines, shallow:true do 
     resources :subscriptions
-    resources :issues
+    resources :issues do
+
+    collection { post :sort }
+
+    end
+
+
   end
   # resources :contents
    

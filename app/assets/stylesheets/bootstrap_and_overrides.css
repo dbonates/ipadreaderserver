@@ -5,7 +5,69 @@
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
   */     
+
+.banner-free {
+  position:absolute;
+  text-align: "center";
+  vertical-align: "center";
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: -200px;
+  margin-left: 100px;
+  border-radius: 0px;
+  background-color: #b10000;
+  color: #fff;
+  float: left;
+}
+
+.banner-log {
+  position:absolute;
+  text-align: "center";
+  vertical-align: "center";
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: -180px;
+  margin-left: 100px;
+  border-radius: 0px;
+  background-color: #1053b1;
+  color: #fff;
+  float: left;
+}
+
+.to-left {
+   float: left;
+   padding-left: 5px;
+  padding-right: 5px;
+}
+.to-right {
+   float: right;
+   padding-left: 5px;
+  padding-right: 5px;
+}
+
+
+#sortable { list-style-type: none; margin: 0; padding: 0; }
+#sortable li { 
+
+  margin: 10px 10px 10px 10px; 
+  padding: 1px; 
+  float: left;
+  width: 150px; 
+  font-size: 1em; 
+}
+
+.ui-sortable-placeholder { border: 1px dotted black; visibility: visible !important; line-height: 1.2em; }
  
+
+ #sortable .handle {
+  font-size: 12px;
+  color: #777;
+  cursor: move;
+}
+
+/*.ui-state-highlight { width: 150px; height: 200px; line-height: 1.2em; */
+.ui-state-highlight { width: 150px; height: 200px;  line-height: 1.2em; }
+
 .nav_style {
 	float: none;
 	padding: 10px 15px 10px;

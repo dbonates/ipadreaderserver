@@ -8,6 +8,14 @@ jQuery ->
     $(@).closest('fieldset').hide()
     event.preventDefault()
 
+  $( "#sortable" ).sortable
+  	update: -> $.post($(this).data('update-url'), $(this).sortable('serialize'))
+    	
+
+  $( "#sortable").disableSelection()
+  
+
+
   $('form').on 'click', '.add_fields', (event) ->
     time = new Date().getTime()
     regexp = new RegExp($(@).data('id'), 'g')
