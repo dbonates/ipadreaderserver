@@ -6,6 +6,44 @@
   =require twitter-bootstrap-static/fontawesome
   */     
 
+.cover-show {
+  float: left;
+  /*margin: 10px;*/
+  height: 200px;
+  width: 150px;
+  /*border-radius: 5px;*/
+  border-width: 4px;
+  border-style: solid;
+  border-color: #d7eaf7;
+  box-shadow: 3px 3px 3px #888888;
+}
+.cover-info {
+  margin: 10px;
+  /*float: left;*/
+  /*padding-left: 10px;*/
+  /*margin-left: 10px;*/
+}
+
+.general-box {
+  border: 2px solid;
+  padding: 10px;
+  border-radius: 10px;
+  border-color: #c5d6e2;
+  background-color: #d9eaf8;
+  height: auto;
+
+}
+
+.cover-box {
+  border: 2px solid;
+  padding: 10px;
+  border-radius: 10px;
+  border-color: #c5d6e2;
+  background-color: #d9eaf8;
+  height: 280px;
+
+}
+
 .banner-free {
   position:absolute;
   text-align: "center";

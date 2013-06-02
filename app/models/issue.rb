@@ -6,7 +6,7 @@ class Issue < ActiveRecord::Base
 
   auto_strip_attributes :product_identifier, :name 
   
-  attr_accessible :free, :description, :cover, :name, :pdf, :product_identifier, :previews_attributes, :contents_attributes, :bigcover
+  attr_accessible :free, :description, :cover, :name, :pdf, :product_identifier, :previews_attributes, :contents_attributes, :bigcover, :position
   
   belongs_to :magazine
   has_many :previews

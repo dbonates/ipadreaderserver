@@ -12,7 +12,7 @@
       <% @issues.each do |issue| %>
         <%= content_tag_for :li, issue do %>
 
-          <%=image_tag issue.cover, width:"150" %><br />
+          <%=image_tag issue.cover, width:"150", :class => "img-polaroid" %><br />
           
           <div style="float: left"><%= issue.name %></div>
           <% if issue.is_free == "Sim" %>

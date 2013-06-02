@@ -34,6 +34,10 @@ class IssuesController < ApplicationController
   # GET /issues/new.json
   def new
     @issue = Issue.new
+
+
+    # @issue.position = Issue.where(:magazine_id => @magazine.id).count+1
+    @issue.position = 0 # adicionando na ponta
     3.times{@issue.previews << Preview.new}
     3.times{@issue.contents << Content.new}
     respond_to do |format|
@@ -53,7 +57,7 @@ class IssuesController < ApplicationController
     @issue.magazine = @magazine
     respond_to do |format|
       if @issue.save
-        format.html { redirect_to @issue, notice: 'Edicao criada com sucesso.' }
+        format.html { redirect_to magazine_issues_path(:magazine_id => @issue.magazine_id), notice: 'Edicao criada com sucesso.' }
         format.json { render json: @issue, status: :created, location: @issue }
       else
         format.html { render action: "new" }

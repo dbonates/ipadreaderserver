@@ -4,7 +4,7 @@
 <div class="subject new">
    	 <div class="control-group">
 	<%= form_for path, :html => { :class => 'form-horizontal', :multipart => true } do |f| %>
-	
+	<%= f.hidden_field :position, value: @issue.position, :class => 'text_field' %></td>
 		<table>
 			<tr>
 				<th class = 'control-label'>Nome</th>
