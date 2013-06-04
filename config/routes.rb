@@ -27,11 +27,8 @@ Ipadreaderserver::Application.routes.draw do
   resources :magazines, shallow:true do 
     resources :subscriptions
     resources :issues do
-
-    collection { post :sort }
-
+      collection { post :sort }
     end
-
 
   end
   # resources :contents

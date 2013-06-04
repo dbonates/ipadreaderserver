@@ -108,9 +108,12 @@ class MagazinesController < ApplicationController
     # @magazine = Magazine.where(:user_id => current_user.id).find(params[:id])
     @magazine.destroy
 
-    respond_to do |format|
-      format.html { redirect_to magazines_url }
-      format.json { head :no_content }
-    end
+      respond_to do |format|
+        format.html { redirect_to magazines_url }
+        format.json { head :no_content }
+      end
   end
+
+
+
 end

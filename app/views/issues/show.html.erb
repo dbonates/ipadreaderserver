@@ -19,8 +19,7 @@
 
 
               <span class="row">
-                  <div class="cover-info"><h3><%= @issue.name %></h3></div>
-                  <div class="cover-info"><strong>Identifier: </strong><%= @issue.product_identifier %></div>
+                  <div id="cover-name" class="cover-info"><strong>Identifier: </strong><%= @issue.product_identifier %></div>
                   <div class="cover-info"><strong>PDF: </strong><%= File.basename(@issue.pdf.to_s) %></div>
                   <div class="cover-info"><strong>Info: </strong><%= @issue.description %></div>
                   <div class="cover-info"><strong>Posição: </strong><%= @issue.position %></div>

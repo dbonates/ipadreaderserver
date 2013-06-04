@@ -13,8 +13,6 @@ jQuery ->
     	
 
   $( "#sortable").disableSelection()
-  
-
 
   $('form').on 'click', '.add_fields', (event) ->
     time = new Date().getTime()
